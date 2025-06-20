@@ -1,4 +1,4 @@
-*** Netflix Movie Intelligence System ***
+***Netflix Movie Intelligence System***
 
 Questo progetto individuale ha come obiettivo lo sviluppo di un sistema intelligente per l’analisi, la classificazione e la raccomandazione di film, basato su un dataset reale tratto dal catalogo Netflix.
 

@@ -11,10 +11,9 @@ def print_menu():
     
     print("1. Generazione di raccomandazioni film basate su similarità")
     print("2. Previsione della popolarità di un film")
-    print("3. Visualizzazione metodo di determinazione cluster (Elbow Method)")
-    print("4. Uscita")
+    print("3. Uscita")
     print("-" * 70)
-    print("Selezionare l'opzione desiderata [1-4]:")
+    print("Selezionare l'opzione desiderata [1-3]:")
 
 def print_goodbye():
     print(colored("Grazie per aver usato il sistema! Arrivederci!", "cyan"))

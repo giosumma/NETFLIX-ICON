@@ -22,8 +22,15 @@ def main():
             graphics.genre_request()
             preferred_genre = input().strip().capitalize()
 
+            #n_movies = int(input())
+            
             graphics.number_request()
-            n_movies = int(input())
+            n_movies = input().strip()
+            if not n_movies.isdigit():
+                print("⚠️ Inserisci un numero valido.")
+                return
+            n_movies = int(n_movies)
+
 
             data = pd.read_csv('../dataset/movies.csv', low_memory=False)
             _, movies = preprocessing.preprocessing_for_clustering(data)
@@ -33,7 +40,7 @@ def main():
             functions.recommend_movies(movie_title, preferred_genre, movies, n_movies)
 
             print("\n")
-            os.system("pause")
+            #os.system("pause")
             first_time = False
             print("\n")
 
@@ -78,25 +85,16 @@ def main():
                     
 
             print("\n")
-            os.system("pause")
+            #os.system("pause")
             first_time = False
             print("\n")
 
+    
         elif choice == '3':
-            data = pd.read_csv('../dataset/movies.csv', low_memory=False)
-            _, movies = preprocessing.preprocessing_for_clustering(data)
-            clustering.elbow_method(_, movies)
-
-            print("\n")
-            os.system("pause")
-            first_time = False
-            print("\n")
-        
-        elif choice == '4':
             graphics.print_goodbye()
             break
 
-        elif choice >= '5':
+        elif choice >= '4':
             print("Scelta non valida")
 
             

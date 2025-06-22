@@ -8,7 +8,7 @@ def recommend_movies(title, preferred_genre, movies, n_movies=10):
     similar_movies = find_similar_movies(title, preferred_genre, movies, n_movies)
 
     if similar_movies is not None and not similar_movies.empty:
-        print(colored(f'🎬 Raccomandazioni basate su "{title}" e genere "{preferred_genre}"', "green"))
+        print(colored(f'Raccomandazioni basate su "{title}" e genere "{preferred_genre}"', "green"))
         print()
         for i in range(len(similar_movies)):
             name = similar_movies.title[i]
@@ -27,7 +27,7 @@ def recommend_movies(title, preferred_genre, movies, n_movies=10):
         #plt.show()
 
     else:
-        print("❌ Nessun film trovato che corrisponda al titolo e al genere preferito.")
+        print(colored("Nessun film trovato che corrisponda al titolo e al genere preferito.","red"))
 
 
 
@@ -36,7 +36,7 @@ def find_similar_movies(title, preferred_genre, movies, top_n=5):
     genre_col = f"genre_{preferred_genre}"
 
     if genre_col not in movies.columns:
-        print(f"⚠️ Genere '{preferred_genre}' non trovato nel database.")
+        print(colored(f"Genere '{preferred_genre}' non trovato nel database.","red"))
         return None
 
     # Preparare il dataset
@@ -47,7 +47,7 @@ def find_similar_movies(title, preferred_genre, movies, top_n=5):
     selected_movie = database[database['title_clean'] == title_clean]
     if selected_movie.empty:
         suggestions = database[database['title_clean'].str.contains(title_clean[:5])]['title'].unique()
-        print(f"⚠️ Film '{title}' non trovato. Forse cercavi uno di questi?")
+        print(colored(f"Film '{title}' non trovato. Forse cercavi uno di questi?","yellow"))
         for s in suggestions[:5]:
             print(f" - {s}")
         return None

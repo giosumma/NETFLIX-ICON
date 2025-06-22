@@ -25,18 +25,18 @@ def main():
             #n_movies = int(input())
             
             graphics.number_request()
-            n_movies = input().strip()
-            if not n_movies.isdigit():
-                print("⚠️ Inserisci un numero valido.")
-                return
-            n_movies = int(n_movies)
-
+            while True:
+                n_movies = input().strip()
+                if n_movies.isdigit():
+                    n_movies = int(n_movies)
+                    break
+                else:
+                    print(colored("Inserisci un numero valido.","red"))
 
             data = pd.read_csv('../dataset/movies.csv', low_memory=False)
             _, movies = preprocessing.preprocessing_for_clustering(data)
             clustering.clustering(_, movies)
 
-            print(colored(f" RACCOMANDAZIONI BASATE SU '{movie_title}' (Genere: {preferred_genre}) ", "green", attrs=["bold"]))
             functions.recommend_movies(movie_title, preferred_genre, movies, n_movies)
 
             print("\n")
@@ -57,9 +57,17 @@ def main():
             else:
                 graphics.movie_matched()
                 graphics.choose_classifier()
-                model_choice = int(input())
 
-                result = False
+                while True:
+                    model_input = input().strip()
+                    if model_input.isdigit():
+                        model_choice = int(model_input)
+                        if model_choice in [1, 2, 3, 4]:
+                            break
+                        else:
+                            print(colored("Scelta non valida. Inserisci un numero tra 1 e 4.","red"))
+                    else:
+                        print(colored("Inserisci un numero valido.","red"))
 
                 match model_choice:
                     case 1:
@@ -95,7 +103,7 @@ def main():
             break
 
         elif choice >= '4':
-            print("Scelta non valida")
+            print(colored("Scelta non valida","red"))
 
             
 if __name__ == '__main__':

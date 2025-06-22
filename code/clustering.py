@@ -4,8 +4,8 @@ from sklearn.cluster import KMeans
 
 def clustering(dataFrame, movies):
     DF = movies.drop(['title'], axis=1).select_dtypes(include=['number'])
-    #Divido i film in 5 gruppi, perche da quanto visto con l'Elbow Method, è un numero equilibrato
-    kmeans = KMeans(n_clusters=5, random_state=42)
+    #Divido i film in 7 gruppi, perche da quanto visto con l'Elbow Method, è un numero equilibrato
+    kmeans = KMeans(n_clusters=7, random_state=42)
     movies['Cluster'] = kmeans.fit_predict(DF)
 
 def elbow_method(dataFrame, movies):

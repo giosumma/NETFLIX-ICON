@@ -1,24 +1,25 @@
-***Netflix Movie Intelligence System***
+# Movie Recommender System - ICON
+Repository per il caso di studio di Ingegneria della Conoscenza
 
-Questo progetto individuale ha come obiettivo lo sviluppo di un sistema intelligente per l’analisi, la classificazione e la raccomandazione di film, basato su un dataset reale tratto dal catalogo Netflix.
+A.A. 2024-2025
 
-*Obiettivi principali*
+Università degli Studi di Bari Aldo Moro
 
-Il sistema è stato progettato per affrontare tre task fondamentali:
+## Studentessa
+- Giorgia Summa - 775197
 
-- Previsione della Popolarità: sviluppo di un modello di classificazione binaria per prevedere se un film sarà "popolare" o meno, sulla base delle sue caratteristiche (anno, genere, paese, durata, ecc.).
+## Clonare il progetto
+<code>git clone https://github.com/giosumma/NETFLIX-ICON.git</code>
 
-- Raccomandazione basata su Similarità: Implementazione di un sistema in grado di suggerire film simili a un titolo scelto dall’utente, tramite metriche di similarità tra vettori di rappresentazione (es. TF-IDF, cosine similarity).
+## Creare l'ambiente virtuale se necessario
+<code>cd NETFLIX-ICON</code>
 
-- Raggruppamento Automatico (Clustering): Organizzazione dei film in cluster omogenei mediante tecniche di apprendimento non supervisionato, per facilitare l’esplorazione e comprendere la struttura latente del dataset.
+<code>python -m venv NETFLIX-ICON</code>
 
-*Tecniche e Metodologie*
+## Installare le dipendenze
+<code>cd code</code>
 
-Per il raggiungimento degli obiettivi sono stati integrati diversi approcci:
+<code>pip install -r requirements.txt</code>
 
-- Machine Learning Supervisionato: Utilizzato per la classificazione della popolarità tramite algoritmi come Random Forest, Logistic Regression, ecc.
-
-- Apprendimento Non Supervisionato: Utilizzato per il clustering (es. K-Means), con analisi esplorativa dei gruppi risultanti.
-
-- Content-Based Filtering: Calcolo della similarità tra contenuti
-
+## Esecuzione del programma
+<code>python main.py</code>
